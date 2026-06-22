@@ -4,7 +4,7 @@ export async function handleScriptRoute(event) {
 
     if (isCurl) {
         const targetUrl =
-            "https://gist.githubusercontent.com/PokumeKachi/af266a673d3fe4e66ddd77863140d88a/raw/6bb149d8105939ab5169cedfedc10af1e5db6740/script.sh";
+            "https://gist.githubusercontent.com/PokumeKachi/af266a673d3fe4e66ddd77863140d88a/raw";
         const command = `# Script sourced from ${targetUrl}\nTMPFILE=$(mktemp) && curl -L -o "$TMPFILE" "${targetUrl}" && chmod 755 "$TMPFILE" && printf '\n\n\n\x1b[1;32mNext, run \x1b[1;33m%s\x1b[1;32m to \x1b[1;36mexecute\x1b[1;32m the script!\x1b[0m\n\n' "$TMPFILE"`;
         return new Response(command, {
             status: 200,
