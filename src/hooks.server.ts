@@ -7,7 +7,7 @@ export async function handle({ event, resolve }) {
     const userAgent = event.request.headers.get("user-agent") || "";
     const isCurl = /curl|wget|httpie|libcurl/i.test(userAgent);
 
-    if (url === "/script" && isCurl) {
+    if (url === "/" && isCurl) {
         const result = handleScriptRoute(event);
         if (result) return result;
     }
